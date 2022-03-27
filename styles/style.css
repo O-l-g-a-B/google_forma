@@ -1,0 +1,32 @@
+.page {
+    display: block;
+    max-width: 600px;
+    margin: 0 auto;
+    margin-top: 50px;
+    margin-bottom: 100px;
+    box-shadow: 5px 5px 10px rgb(115, 112, 112);
+
+}
+
+.logo {
+    display: block;
+    max-width: 200px;
+    margin: 0 auto;
+    padding-top: 100px;
+}
+
+.form {
+    display: block;
+    max-width: 500px;
+    margin: 0 auto;
+    padding-top: 50px;
+    padding-bottom: 50px;
+}
+
+.form-text {
+    font-size: 10px;
+}
+
+#errorMessage {
+    color: red;
+}
