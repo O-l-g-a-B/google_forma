@@ -1,99 +1,72 @@
-function check() 
-{
- 
-  let name = document.getElementById("color_name").value;
-  
-  let name1 = document.getElementById("color_name");
+let errors = [];
+let name1 = document.getElementById("color_name").value;
+
+function checkValidity(input) {
+  let validity = input.validity;
+  if (validity.valueMissing) {
+    errors.push('Поле ' + input.placeholder + ' не заполненно');
+  }
+
+  if (validity.tooShort) {
+    errors.push('Слишким короткий ввод пароля');
+  }
+}
+
+function checkEmail() {
   let email = document.getElementById("color_email");
-  let password = document.getElementById("color_password");
+  let emailFormat = /^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/i;
+  if (email.value === "") {
+    return true;
+  }
+  if (email.value.match(emailFormat)) {
+    return true;
+  } else {
+    errors.push('Адрес почты введен неверно!');
+    return false;
+  }
+
+}
+
+function checkTel() {
   let tel = document.getElementById("color_tel");
-  let country = document.getElementById("exampleDataList");
-  
+  let telFormat = /^\+?(\d{1,3})?[- .]?\(?(?:\d{2,3})\)?[- .]?\d\d\d[- .]?\d\d\d\d$/;
+  if (tel.value === "") {
+    return true;
+  }
+  if (tel.value.match(telFormat)) {
+    return true;
+  } else {
+    errors.push('Телефон некорректен!');
+    return false;
+  }
 
-  document.getElementById('errorMessage').innerHTML = "";
-
-  if (name1.value == '') {
-    document.getElementById('errorMessage').innerHTML+= "Ваше имя не заполнено<br>";
 }
 
- if (email.value == '') {
-  document.getElementById('errorMessage').innerHTML+= "Ваш емейл не заполнен<br>";
+function checkAll() {
+  let name = document.getElementById("color_name").value;
+  errors = [];
+  let inputs = document.querySelectorAll("input");
+
+  for (let input of inputs) {
+    checkValidity(input);
+  }
+  checkEmail();
+  checkTel();
+  document.getElementById('errorsInfo').innerHTML = errors.join('. <br>');
+  if (document.getElementById('errorsInfo').innerHTML === '')
+    alert(`Добро пожаловать, ${name}!`);
+
+}
+let initial = document.querySelectorAll('input');
+let white = 'white';
+let beige = 'beige';
+
+const colorMe = (element, color) => {
+  element.style.backgroundColor = color;
 }
 
- if (password.value.length<=8) {
-  document.getElementById('errorMessage').innerHTML+= "Ваш пароль не заполнен или слишком короткий<br>";
+const colorMeBack = (element, color) => {
+  element.style.backgroundColor = color;
 }
-
- if (tel.value == '') {
-  document.getElementById('errorMessage').innerHTML+= "Ваш телефон не заполнен<br>";
-}
-
- if (country.value == '') {
-  document.getElementById('errorMessage').innerHTML+= "Ваша страна не заполнена<br>";
-}
-else {
-  alert(`Добро пожаловать, ${name}!`);
-}
-}
-
-
-
-function colorMe()
-{
-  document.getElementById('color_name')
-  .style.backgroundColor = 'beige';
-}
-  
-function colorMeBack()
-{
-  document.getElementById('color_name')
-  .style.backgroundColor ='white';
-}
-
-function colorMe1()
-{
-  document.getElementById('color_email')
-  .style.backgroundColor = 'beige';
-}
-
-function colorMeBack1()
-{
-  document.getElementById('color_email')
-  .style.backgroundColor ='white';
-}
-
-function colorMe2()
-{
-  document.getElementById('color_password')
-  .style.backgroundColor = 'beige';
-}
-
-function colorMeBack2()
-{
-  document.getElementById('color_password')
-  .style.backgroundColor ='white';
-}
-
-function colorMe3()
-{
-  document.getElementById('color_tel')
-  .style.backgroundColor='beige';
-}
-
-function colorMeBack3()
-{
-  document.getElementById('color_tel')
-  .style.backgroundColor='white';
-}
-
-function colorMe4()
-{
-  document.getElementById('exampleDataList')
-  .style.backgroundColor='beige';
-}
-
-function colorMeBack4()
-{
-  document.getElementById('exampleDataList')
-  .style.backgroundColor='white';
-}
+colorMe(initial, beige);
+colorMeBack(initial, white);
