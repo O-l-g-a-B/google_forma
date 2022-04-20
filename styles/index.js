@@ -57,16 +57,16 @@ function checkAll() {
     alert(`Добро пожаловать, ${name}!`);
 
 }
-let initial = document.querySelectorAll('input');
-let white = 'white';
-let beige = 'beige';
 
-const colorMe = (element, color) => {
-  element.style.backgroundColor = color;
-}
+const colorInput = document.getElementsByClassName("form-control");
 
-const colorMeBack = (element, color) => {
-  element.style.backgroundColor = color;
+for (i = 0; i < colorInput.length; i++) {
+  colorInput[i].onmouseover = function () {
+    this.style.background = "beige";
+  };
 }
-colorMe(initial, beige);
-colorMeBack(initial, white);
+for (i = 0; i < colorInput.length; i++) {
+  colorInput[i].onmouseout = function () {
+    this.style.background = "white";
+  };
+}

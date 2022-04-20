@@ -18,29 +18,26 @@
         </div>
         <form class="form" novalidate>
             <div class="mb-3">
-                <input class="form-control color" type="name" placeholder="Имя" id="color_name" onmouseover="colorMe()"
-                    onmouseout="colorMeBack()" required>
+                <input class="form-control color" type="name" placeholder="Имя" id="color_name" required>
 
             </div>
 
             <div class="mb-3">
                 <input class="form-control" type="email" placeholder="Адрес электронной почты" id="color_email"
-                    onmouseover="colorMe()" onmouseout="colorMeBack()" required>
+                    required>
             </div>
             <div class="mb-3">
-                <input class="form-control" type="password" placeholder="Пароль" minlength="8" maxlength="15"
-                    aria-describedby="passwordHelpBlock" onmouseover="colorMe()" onmouseout="colorMeBack()"
-                    id="color_password" required>
+                <input class="form-control" type="password" placeholder="Пароль" minlength="5" maxlength="15"
+                    aria-describedby="passwordHelpBlock" id="color_password" required>
                 <div id="passwordHelpBlock" class="form-text">
-                    Ваш пароль должен содержать более 8-ми символов.
+                    Ваш пароль должен содержать больше 5 символов.
                 </div>
             </div>
             <div class="mb-3">
-                <input class="form-control" type="tel" placeholder="Номер телефона" onmouseover="colorMe()"
-                    onmouseout="colorMeBack()" id="color_tel" required></div>
+                <input class="form-control" type="tel" placeholder="Номер телефона" id="color_tel" required></div>
             <div class="mb-3">
                 <input class="form-control" list="datalistOptions" id="exampleDataList" placeholder="Страна проживания"
-                    onmouseover="colorMe()" onmouseout="colorMeBack()" required>
+                    required>
                 <datalist id="datalistOptions">
                     <option value="Россия">
                     <option value="Италия">
