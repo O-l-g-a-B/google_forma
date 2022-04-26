@@ -70,3 +70,7 @@ for (i = 0; i < colorInput.length; i++) {
     this.style.background = "white";
   };
 }
+
+function deliteAll() {
+  document.getElementById('myform').reset();
+}
