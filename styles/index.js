@@ -74,3 +74,26 @@ for (i = 0; i < colorInput.length; i++) {
 function deliteAll() {
   document.getElementById('myform').reset();
 }
+
+postButton.onclick = function (e) {
+  e.preventDefault();
+  let user = {
+    name: document.getElementById("color_name").value,
+    email: document.getElementById("color_email").value,
+    password: document.getElementById("color_password").value,
+    tel: document.getElementById("color_tel").value,
+    cauntry: document.getElementById("exampleDataList").value
+  }
+  fetch("https://httpbin.org/post", {
+      method: 'POST',
+      body: JSON.stringify(user),
+      headers: {
+        'Content-Type': 'application/json; charset=utf-8'
+      },
+    })
+    .then(response => response.json())
+    .then(user => {
+      console.log(user);
+    })
+    .catch(error => console.log(error));
+}
